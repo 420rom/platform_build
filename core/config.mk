@@ -3,6 +3,8 @@
 # current configuration and platform, which
 # are not specific to what is being built.
 
+420ROM_VERSION := 5.0.$(shell date +%y.%m.%d)
+
 ifndef KATI
 $(warning Directly using config.mk from make is no longer supported.)
 $(warning )

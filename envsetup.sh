@@ -45,6 +45,9 @@ Environment options:
 
 Look at the source to view more functions. The complete list is:
 EOF
+
+export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+
     local T=$(gettop)
     local A=""
     local i
@@ -582,6 +585,14 @@ function print_lunch_menu()
     local uname=$(uname)
     local choices=$(TARGET_BUILD_APPS= get_build_var COMMON_LUNCH_CHOICES)
     echo
+	echo ""
+    tput setaf 1;
+    tput bold;
+    echo ""
+    echo "************************************************"
+    echo "        420om - Android base 10.0.0 r40         "
+    echo "************************************************"
+    echo ""
     echo "You're building on" $uname
     echo
     echo "Lunch menu... pick a combo:"

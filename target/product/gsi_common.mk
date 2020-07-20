@@ -44,6 +44,7 @@ endif
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
     system/app/messaging/messaging.apk \
     system/app/WAPPushManager/WAPPushManager.apk \
+    system/app/WallpaperPicker2 \
     system/bin/healthd \
     system/etc/init/healthd.rc \
     system/etc/seccomp_policy/crash_dump.%.policy \
