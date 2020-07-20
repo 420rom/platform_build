@@ -805,36 +805,11 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     # Stage 3/3: Make changes.
     script.Comment("Stage 3/3")
 
-  # Dump fingerprints
-  #script.Print("Target: {}".format(target_info.fingerprint))
-  #script.Print("Target: %s" % target_fp)
-
-  script.Print(" ");
-  script.Print("                  || StatiXOS 11 ||           ");
-  script.Print(" ");
-  script.Print("                            ,@@@              ");
-  script.Print("                          @@,  @              ");
-  script.Print("                        @@    @@              ");
-  script.Print("                      @@      @               ");
-  script.Print("                   @@(       @#               ");
-  script.Print("                 @@         *@                ");
-  script.Print("               @@           @.                ");
-  script.Print("            @@(            %@                 ");
-  script.Print("           @@              @                  ");
-  script.Print("             &@@@@@@@      @@                 ");
-  script.Print("                     &@@@@@.                  ");
-  script.Print("                         @@@@@@@@@@@@&        ");
-  script.Print("                         @           @@@@&    ");
-  script.Print("                        @@             @@@    ");
-  script.Print("                        @            @@       ");
-  script.Print("                       @@          @@         ");
-  script.Print("                       @         @@           ");
-  script.Print("                      @@      @@,             ");
-  script.Print("                      @     @@                ");
-  script.Print("                     @*   @@                  ");
-  script.Print("                     @ @@*                    ");
-  script.Print("                      @                       ");
-  script.Print(" ");
+  script.Print("Target: {}".format(target_info.fingerprint))
+  echo $'\E'"[0;34m"
+  script.Print("************************************************");
+  script.Print("   420rom 11.0 Rom - Android base 11.0.0 r41    ");
+  script.Print("*************************************************);
 
   android_version = target_info.GetBuildProp("ro.build.version.release")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
@@ -849,6 +824,10 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print(" Build type      : %s"%(build_type));
   script.Print(" Device          : %s"%(device));
   script.Print(" =============================================");
+
+  # Dump fingerprints
+  #script.Print("Target: {}".format(target_info.fingerprint))
+  #script.Print("Target: %s" % target_fp)
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
