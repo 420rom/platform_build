@@ -19,4 +19,4 @@
 # builds.
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
-PRODUCT_LOCALES += en_XC
+PRODUCT_LOCALES += en_GB

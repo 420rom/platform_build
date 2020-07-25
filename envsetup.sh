@@ -33,7 +33,7 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
 
 EOF
 
-    __print_lineage_functions_help
+    __print_420rom_functions_help
 
 cat <<EOF
 
@@ -51,7 +51,7 @@ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
     local T=$(gettop)
     local A=""
     local i
-    for i in `cat $T/build/envsetup.sh $T/vendor/lineage/build/envsetup.sh | sed -n "/^[[:blank:]]*function /s/function \([a-z_]*\).*/\1/p" | sort | uniq`; do
+    for i in `cat $T/build/envsetup.sh $T/vendor/420rom/build/envsetup.sh | sed -n "/^[[:blank:]]*function /s/function \([a-z_]*\).*/\1/p" | sort | uniq`; do
       A="$A $i"
     done
     echo $A
@@ -62,8 +62,8 @@ function build_build_var_cache()
 {
     local T=$(gettop)
     # Grep out the variable names from the script.
-    cached_vars=(`cat $T/build/envsetup.sh $T/vendor/lineage/build/envsetup.sh | tr '()' '  ' | awk '{for(i=1;i<=NF;i++) if($i~/get_build_var/) print $(i+1)}' | sort -u | tr '\n' ' '`)
-    cached_abs_vars=(`cat $T/build/envsetup.sh $T/vendor/lineage/build/envsetup.sh | tr '()' '  ' | awk '{for(i=1;i<=NF;i++) if($i~/get_abs_build_var/) print $(i+1)}' | sort -u | tr '\n' ' '`)
+    cached_vars=(`cat $T/build/envsetup.sh $T/vendor/420rom/build/envsetup.sh | tr '()' '  ' | awk '{for(i=1;i<=NF;i++) if($i~/get_build_var/) print $(i+1)}' | sort -u | tr '\n' ' '`)
+    cached_abs_vars=(`cat $T/build/envsetup.sh $T/vendor/420rom/build/envsetup.sh | tr '()' '  ' | awk '{for(i=1;i<=NF;i++) if($i~/get_abs_build_var/) print $(i+1)}' | sort -u | tr '\n' ' '`)
     # Call the build system to dump the "<val>=<value>" pairs as a shell script.
     build_dicts_script=`\builtin cd $T; build/soong/soong_ui.bash --dumpvars-mode \
                         --vars="${cached_vars[*]}" \
@@ -145,12 +145,12 @@ function check_product()
         echo "Couldn't locate the top of the tree.  Try setting TOP." >&2
         return
     fi
-    if (echo -n $1 | grep -q -e "^lineage_") ; then
-        LINEAGE_BUILD=$(echo -n $1 | sed -e 's/^lineage_//g')
+    if (echo -n $1 | grep -q -e "^420rom_") ; then
+        420ROM_BUILD=$(echo -n $1 | sed -e 's/^420rom_//g')
     else
-        LINEAGE_BUILD=
+        420ROM_BUILD=
     fi
-    export LINEAGE_BUILD
+    export 420ROM_BUILD
 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \
@@ -468,7 +468,7 @@ function chooseproduct()
     if [ "x$TARGET_PRODUCT" != x ] ; then
         default_value=$TARGET_PRODUCT
     else
-        default_value=aosp_arm
+        default_value=420rom_arm
     fi
 
     export TARGET_BUILD_APPS=
@@ -668,13 +668,13 @@ function lunch()
         # if we can't find a product, try to grab it off the LineageOS GitHub
         T=$(gettop)
         cd $T > /dev/null
-        vendor/lineage/build/tools/roomservice.py $product
+        vendor/420rom/build/tools/roomservice.py $product
         cd - > /dev/null
         check_product $product
     else
         T=$(gettop)
         cd $T > /dev/null
-        vendor/lineage/build/tools/roomservice.py $product true
+        vendor/420rom/build/tools/roomservice.py $product true
         cd - > /dev/null
     fi
 
@@ -759,13 +759,13 @@ function tapas()
         return
     fi
 
-    local product=aosp_arm
+    local product=420rom_arm
     case $arch in
-      x86)    product=aosp_x86;;
-      mips)   product=aosp_mips;;
-      arm64)  product=aosp_arm64;;
-      x86_64) product=aosp_x86_64;;
-      mips64)  product=aosp_mips64;;
+      x86)    product=420rom_x86;;
+      mips)   product=420rom_mips;;
+      arm64)  product=420rom_arm64;;
+      x86_64) product=420rom_x86_64;;
+      mips64)  product=420rom_mips64;;
     esac
     if [ -z "$variant" ]; then
         variant=eng
