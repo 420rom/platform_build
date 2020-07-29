@@ -41,7 +41,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
-ifeq ($(420ROM_BUILD),)
+ifeq ($(LINEAGE_BUILD),)
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.config.ringtone=Ring_Synth_04.ogg \

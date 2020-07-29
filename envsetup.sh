@@ -146,11 +146,11 @@ function check_product()
         return
     fi
     if (echo -n $1 | grep -q -e "^420rom_") ; then
-        420ROM_BUILD=$(echo -n $1 | sed -e 's/^420rom_//g')
+        LINEAGE_BUILD=$(echo -n $1 | sed -e 's/^420rom_//g')
     else
-        420ROM_BUILD=
+        LINEAGE_BUILD=
     fi
-    export 420ROM_BUILD
+    export LINEAGE_BUILD
 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \

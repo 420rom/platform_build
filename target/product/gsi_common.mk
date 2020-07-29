@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
 
 # Default AOSP sounds
-ifeq ($(420ROM_BUILD),)
+ifeq ($(LINEAGE_BUILD),)
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
 else
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
@@ -32,7 +32,7 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.apex.updatable=false
 
-ifeq ($(420ROM_BUILD),)
+ifeq ($(LINEAGE_BUILD),)
 # Additional settings used in all AOSP builds
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.ringtone=Ring_Synth_04.ogg \
@@ -95,7 +95,7 @@ PRODUCT_PACKAGES += \
 
 # Telephony:
 #   Provide a APN configuration to GSI product
-ifeq ($(420ROM_BUILD),)
+ifeq ($(LINEAGE_BUILD),)
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 endif

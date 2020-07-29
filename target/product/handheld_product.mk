@@ -40,7 +40,7 @@ PRODUCT_PACKAGES += \
     WallpaperCropper \
     frameworks-base-overlays
 
-ifeq ($(420ROM_BUILD),)
+ifeq ($(LINEAGE_BUILD),)
 PRODUCT_PACKAGES += \
     LatinIME
 endif
