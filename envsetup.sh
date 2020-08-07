@@ -468,7 +468,7 @@ function chooseproduct()
     if [ "x$TARGET_PRODUCT" != x ] ; then
         default_value=$TARGET_PRODUCT
     else
-        default_value=420rom_arm
+        default_value=aosp_arm64
     fi
 
     export TARGET_BUILD_APPS=
@@ -757,13 +757,13 @@ function tapas()
         return
     fi
 
-    local product=420rom_arm
+    local product=aosp_arm64
     case $arch in
-      x86)    product=420rom_x86;;
-      mips)   product=420rom_mips;;
-      arm64)  product=420rom_arm64;;
-      x86_64) product=420rom_x86_64;;
-      mips64)  product=420rom_mips64;;
+      x86)    product=aosp_x86;;
+      mips)   product=aosp_mips;;
+      arm64)  product=aosp_arm64;;
+      x86_64) product=aosp_x86_64;;
+      mips64)  product=aosp_mips64;;
     esac
     if [ -z "$variant" ]; then
         variant=eng

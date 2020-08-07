@@ -31,7 +31,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
 PRODUCT_COPY_FILES += \
     system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
 
-PRODUCT_NAME := 420rom_gsi_arm64
-PRODUCT_DEVICE := 420rom_gsi_arm64
+PRODUCT_NAME := gsi_arm64
+PRODUCT_DEVICE := gsi_arm64
 PRODUCT_BRAND := generic
-PRODUCT_MODEL := 420rom GSI on ARM64
+PRODUCT_MODEL := GSI on ARM6
