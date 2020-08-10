@@ -641,7 +641,7 @@ else
 MD5SUM:=md5sum
 endif
 
-APICHECK_COMMAND := $(JAVA) -Xmx4g -jar $(APICHECK) --no-banner --compatible-output=yes
+APICHECK_COMMAND := $(JAVA) -Xmx8196m -jar $(APICHECK) --no-banner --compatible-output=yes
 
 # Boolean variable determining if the whitelist for compatible properties is enabled
 PRODUCT_COMPATIBLE_PROPERTY := false
