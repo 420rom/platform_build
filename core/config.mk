@@ -3,7 +3,7 @@
 # current configuration and platform, which
 # are not specific to what is being built.
 
-420ROM_VERSION := 5.0.$(shell date +%y.%m.%d)
+420ROM_VERSION := 11.0.$(shell date +%y.%m.%d)
 
 ifndef KATI
 $(warning Directly using config.mk from make is no longer supported.)
@@ -673,7 +673,7 @@ EXTRACT_KERNEL := build/make/tools/extract_kernel.py
 # Path to tools.jar
 HOST_JDK_TOOLS_JAR := $(ANDROID_JAVA8_HOME)/lib/tools.jar
 
-APICHECK_COMMAND := $(JAVA) -Xmx4g -jar $(APICHECK) --no-banner --compatible-output=yes
+APICHECK_COMMAND := $(JAVA) -Xmx8g -jar $(APICHECK) --no-banner --compatible-output=yes
 
 # Boolean variable determining if the allow list for compatible properties is enabled
 PRODUCT_COMPATIBLE_PROPERTY := false

@@ -471,7 +471,7 @@ function chooseproduct()
     if [ "x$TARGET_PRODUCT" != x ] ; then
         default_value=$TARGET_PRODUCT
     else
-        default_value=aosp_arm
+        default_value=aosp_arm64
     fi
 
     export TARGET_BUILD_APPS=
@@ -598,7 +598,7 @@ function print_lunch_menu()
     tput bold;
     echo ""
     echo "************************************************"
-    echo "        420om - Android base 10.0.0 r40         "
+    echo "        420om - Android base 11.0.0 r41         "
     echo "************************************************"
     echo ""
     echo "You're building on" $uname
