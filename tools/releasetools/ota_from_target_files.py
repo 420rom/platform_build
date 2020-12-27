@@ -808,7 +808,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: {}".format(target_info.fingerprint))
   echo $'\E'"[0;34m"
   script.Print("************************************************");
-  script.Print("   420rom 11.0 Rom - Android base 11.0.0 r21    ");
+  script.Print("   420rom 11.0 Rom - Android base 11.0.0 r24    ");
   script.Print("*************************************************);
 
   android_version = target_info.GetBuildProp("ro.build.version.release")
