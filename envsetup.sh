@@ -598,7 +598,7 @@ function print_lunch_menu()
     tput bold;
     echo ""
     echo "************************************************"
-    echo "        420om - Android base 11.0.0 r24         "
+    echo "        420om - Android base 11.0.0 r28         "
     echo "************************************************"
     echo ""
     echo "You're building on" $uname
