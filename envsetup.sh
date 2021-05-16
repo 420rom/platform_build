@@ -138,8 +138,8 @@ function check_product()
         echo "Couldn't locate the top of the tree.  Try setting TOP." >&2
         return
     fi
-    if (echo -n $1 | grep -q -e "^dot_") ; then
-        DOT_BUILD=$(echo -n $1 | sed -e 's/^dot_//g')
+    if (echo -n $1 | grep -q -e "^Four20rom_") ; then
+        DOT_BUILD=$(echo -n $1 | sed -e 's/^Four20rom_//g')
     else
         DOT_BUILD=
     fi
@@ -590,22 +590,17 @@ function print_lunch_menu()
     echo ""
     tput setaf 1;
     tput bold;
-    echo "▓█████▄  ▒█████  ▄▄▄█████▓ ▒█████    ██████ "
-    echo "▒██▀ ██▌▒██▒  ██▒▓  ██▒ ▓▒▒██▒  ██▒▒██    ▒ "
-    echo "░██   █▌▒██░  ██▒▒ ▓██░ ▒░▒██░  ██▒░ ▓██▄   "
-    echo "░▓█▄   ▌▒██   ██░░ ▓██▓ ░ ▒██   ██░  ▒   ██▒"
-    echo "░▒████▓ ░ ████▓▒░  ▒██▒ ░ ░ ████▓▒░▒██████▒▒"
-    echo " ▒▒▓  ▒ ░ ▒░▒░▒░   ▒ ░░   ░ ▒░▒░▒░ ▒ ▒▓▒ ▒ ░"
-    echo " ░ ▒  ▒   ░ ▒ ▒░     ░      ░ ▒ ▒░ ░ ░▒  ░ ░"
-    echo " ░ ░  ░ ░ ░ ░ ▒    ░      ░ ░ ░ ▒  ░  ░  ░  "
-    echo "   ░        ░ ░               ░ ░        ░  "
-    echo " ░                                          "
+    echo "*******************************************************"
+    echo "* 420rom 11.0 Pixel Edition - Android base 11.0.0 r37 *"
+    echo "*******************************************************"
+    echo "******************|*Based On AOSP*|********************"
+    echo "*******************************************************"
     tput sgr0;
     echo ""
-    echo "                      Welcome to the device menu                      "
+    echo "              Welcome to the device menu               "
     echo ""
     tput bold;
-    echo "     Below are all the devices currently available to be compiled     "
+    echo "Here are the devices currently available to be compiled"
     tput sgr0;
     echo ""
 
@@ -630,7 +625,7 @@ function lunch()
         print_lunch_menu
         tput setaf 2;
         tput bold;
-        echo -n "Go ahead and pick a number or enter lunch combo(dot_device-userdebug)... "
+        echo -n "Go ahead and pick a number or enter lunch combo(420rom_device-userdebug)... "
         tput sgr0;
         read answer
     fi
@@ -681,16 +676,16 @@ function lunch()
     check_product $product
     if [ $? -ne 0 ]
     then
-        # if we can't find a product, try to grab it off the dotOS Devices GitHub
+        # if we can't find a product, try to grab it off the 420rom Devices GitHub
         T=$(gettop)
         cd $T > /dev/null
-        vendor/dot/build/tools/roomservice.py $product
+        vendor/420rom/build/tools/roomservice.py $product
         cd - > /dev/null
         check_product $product
     else
         T=$(gettop)
         cd $T > /dev/null
-        vendor/dot/build/tools/roomservice.py $product true
+        vendor/420rom/build/tools/roomservice.py $product true
         cd - > /dev/null
     fi
 
@@ -1671,7 +1666,7 @@ addcompletions
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/dot/build/tools/repopick.py $@
+    $T/vendor/420rom/build/tools/repopick.py $@
 }
 
 # check and set ccache path on envsetup
