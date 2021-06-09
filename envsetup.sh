@@ -591,7 +591,7 @@ function print_lunch_menu()
     tput setaf 1;
     tput bold;
     echo "*******************************************************"
-    echo "* 420rom 11.0 Pixel Edition - Android base 11.0.0 r37 *"
+    echo "* 420rom 11.0 Pixel Edition - Android base 11.0.0 r38 *"
     echo "*******************************************************"
     echo "******************|*Based On AOSP*|********************"
     echo "*******************************************************"
