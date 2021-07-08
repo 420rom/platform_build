@@ -823,7 +823,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Installing 420rom on {}. Hang On!".format(target_info.GetBuildProp("ro.build.product")))
 
   script.Print("*******************************************************")
-  script.Print("* 420rom 11.0 Pixel Edition - Android base 11.0.0 r38 *")
+  script.Print("* 420rom 11.0 Pixel Edition - Android base 11.0.0 r39 *")
   script.Print("*******************************************************")
   script.Print("******************|*Based On AOSP*|********************")
   script.Print("*******************************************************")
